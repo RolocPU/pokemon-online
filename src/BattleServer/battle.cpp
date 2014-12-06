@@ -1278,7 +1278,7 @@ void BattleSituation::testCritical(int player, int target)
 
         if (gen() < 6) {
             switch(craise) {
-            case 0: minch = 3; break;
+            case 0: minch = 0; break;
             case 1: minch = 6; break;
             case 2: minch = 12; break;
             case 3: minch = 16; break;
@@ -1287,7 +1287,7 @@ void BattleSituation::testCritical(int player, int target)
             }
         } else {
             switch(craise) {
-            case 0: minch = 3; break;
+            case 0: minch = 0; break;
             case 1: minch = 6; break;
             case 2: minch = 24; break;
             case 3: default: minch = 48;
@@ -2922,11 +2922,11 @@ void BattleSituation::changeStatus(int player, int status, bool tell, int turns)
     }
     else if (status == Pokemon::Asleep) {
         if (gen() <= 2) {
-            poke(player).statusCount() = 1 + (randint(6));
+            poke(player).statusCount() = 3 + (randint(5));
         } else if (gen() <= 4) {
-            poke(player).statusCount() = 1 + (randint(4));
+            poke(player).statusCount() = 3 + (randint(5));
         } else {
-            poke(player).statusCount() = 1 + (randint(3));
+            poke(player).statusCount() = 3 + (randint(5));
             poke(player).oriStatusCount() = poke(player).statusCount();
         }
     }
